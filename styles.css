@@ -596,7 +596,8 @@ html {
 /* Product Page Styles */
 .product-hero {
     height: 50vh;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
 }
 
