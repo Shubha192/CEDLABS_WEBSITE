@@ -123,8 +123,9 @@ html {
 .carousel-slide {
     min-width: 100%;
     height: 100%;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
     position: relative;
     display: flex;
     align-items: center;
@@ -374,8 +375,21 @@ html {
 }
 
 .service-card p {
-    margin-top: 10px;
+    margin-top: 15px;
     font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+.service-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Ensures the entire card area is clickable */
+    transition: transform 0.3s ease;
+}
+
+.service-card-link:hover {
+    transform: translateY(-5px);
 }
 
 .slider-btn {
