@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-logo-container">
             <img src="logo.png" alt="CED Labs Logo" class="navbar-logo">
@@ -35,26 +36,73 @@
     </nav>
 
     <main>
-        <section class="about-detailed">
-            <div class="about-hero-content">
-                <h2>About CED LABS</h2>
-                <p><strong>Who we are:</strong> CED Labs Pvt Ltd. is a fast-growing product design, development, and manufacturing company based in Tumkur, Karnataka. Established in 2019, the company was founded by a team of highly experienced engineers with deep expertise in sectors such as Aerospace, Railways, and Telecom. Driven by a commitment to innovation and excellence, CED Labs specializes in cutting-edge technologies, including the Internet of Things (IoT), Radio Frequency Identification (RFID), and embedded systems.<br><br>
-                From its inception, CED Labs has aligned itself with India's "Make in India" initiative, aiming to become a leading player in the design and manufacturing of high-quality electronic products. The company's core mission is to deliver end-to-end, customized solutions tailored to meet the unique needs of each customer. This customer-centric approach, backed by technical expertise, sets CED Labs apart in the highly competitive technology landscape.</p>
+        <!-- Hero Image Section -->
+        <section class="about-hero-image" style="width:100%;height:400px;background:#ccc url('HERO_IMAGE_PLACEHOLDER.jpg') center/cover no-repeat;display:flex;align-items:flex-end;">
+            <!-- Leave space for hero image -->
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" style="background:#fff;padding:30px 20px 10px 20px;max-width:900px;margin:auto;">
+            <h2 style="text-align:center;font-size:1.1rem;font-weight:600;margin-bottom:10px;">About CED LABS</h2>
+            <p style="text-align:justify;font-size:0.98rem;">
+                <strong>Who we are:</strong> CED Labs Pvt Ltd. is a fast-growing product design, development, and manufacturing company based in Tumkur, Karnataka. Established in 2019, the company was founded by a team of highly experienced engineers with deep expertise in sectors such as Aerospace, Railways, and Telecom. Driven by a commitment to innovation and excellence, CED Labs specializes in cutting-edge technologies, including the Internet of Things (IoT), Radio Frequency Identification (RFID), and embedded systems.<br><br>
+                From its inception, CED Labs has aligned itself with India's "Make in India" initiative, aiming to become a leading player in the design and manufacturing of high-quality electronic products. The company's core mission is to deliver end-to-end, customized solutions tailored to meet the unique needs of each customer. This customer-centric approach, backed by technical expertise, sets CED Labs apart in the highly competitive technology landscape.
+            </p>
+        </section>
+
+        <!-- Technical Support Section -->
+        <section class="about-tech-support" style="background:#c00;color:#fff;padding:30px 0;">
+            <div style="display:flex;max-width:900px;margin:auto;align-items:center;gap:30px;flex-wrap:wrap;">
+                <div style="flex:1;min-width:250px;text-align:left;">
+                    <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:10px;">Technical Support</h2>
+                    <p style="font-size:1rem;line-height:1.6;">
+                        CED LABS provides reliable technical support and training programs for its major products, tailored to meet customer needs. Depending on the product and location, support is offered online or on-site. These services help ensure product integration, efficient usage, and effective troubleshooting. Our expert team guides users through every stage from deployment to operation, ensuring smooth integration to optimize your workflow. Training is focused on both product operation and product features, functionality, and best practices, reducing errors and maximizing performance. With a strong focus on customer satisfaction, CED LABS ensures your team is well-equipped to achieve project success using our solutions.
+                    </p>
+                </div>
+                <div style="flex:1;min-width:300px;display:flex;justify-content:center;">
+                    <!-- Placeholder for technical support image -->
+                    <div style="width:350px;height:260px;background:#222 url('TECH_SUPPORT_IMAGE_PLACEHOLDER.jpg') center/cover no-repeat;border-radius:6px;"></div>
+                </div>
             </div>
-             <div class="about-team">
-                <h2>Our Team</h2>
-                <div class="about-team-grid">
-                    <div class="about-team-member"><div class="about-team-photo" style="background-image: url('images/team-placeholder.png');"></div><div class="about-team-name">ABCD SHSHSH<br>XYZ</div></div>
-                    <div class="about-team-member"><div class="about-team-photo" style="background-image: url('images/team-placeholder.png');"></div><div class="about-team-name">ABCD SHSHSH<br>XYZ</div></div>
-                    <div class="about-team-member"><div class="about-team-photo" style="background-image: url('images/team-placeholder.png');"></div><div class="about-team-name">ABCD SHSHSH<br>XYZ</div></div>
-                    <div class="about-team-member"><div class="about-team-photo" style="background-image: url('images/team-placeholder.png');"></div><div class="about-team-name">ABCD SHSHSH<br>XYZ</div></div>
-                    <div class="about-team-member"><div class="about-team-photo" style="background-image: url('images/team-placeholder.png');"></div><div class="about-team-name">ABCD SHSHSH<br>XYZ</div></div>
-                    <div class="about-team-member"><div class="about-team-photo" style="background-image: url('images/team-placeholder.png');"></div><div class="about-team-name">ABCD SHSHSH<br>XYZ</div></div>
+        </section>
+
+        <!-- Our Team Section -->
+        <section class="about-team-section" style="background:#fff;padding:30px 0 50px 0;">
+            <h2 style="text-align:left;font-size:1.3rem;font-weight:700;max-width:900px;margin:0 auto 30px auto;">Our Team</h2>
+            <div class="about-team-grid" style="display:flex;flex-direction:column;align-items:center;gap:30px;max-width:900px;margin:auto;">
+                <div style="display:flex;justify-content:center;gap:40px;width:100%;">
+                    <div class="about-team-member" style="text-align:center;">
+                        <div class="about-team-photo" style="width:140px;height:140px;border-radius:50%;background:#bbb url('TEAM1_PLACEHOLDER.jpg') center/cover no-repeat;margin-bottom:10px;"></div>
+                        <div class="about-team-name">ABCD SHSHSH<br>XYZ</div>
+                    </div>
+                    <div class="about-team-member" style="text-align:center;">
+                        <div class="about-team-photo" style="width:140px;height:140px;border-radius:50%;background:#bbb url('TEAM2_PLACEHOLDER.jpg') center/cover no-repeat;margin-bottom:10px;"></div>
+                        <div class="about-team-name">ABCD SHSHSH<br>XYZ</div>
+                    </div>
+                    <div class="about-team-member" style="text-align:center;">
+                        <div class="about-team-photo" style="width:140px;height:140px;border-radius:50%;background:#bbb url('TEAM3_PLACEHOLDER.jpg') center/cover no-repeat;margin-bottom:10px;"></div>
+                        <div class="about-team-name">ABCD SHSHSH<br>XYZ</div>
+                    </div>
+                </div>
+                <div style="display:flex;justify-content:center;gap:40px;width:100%;">
+                    <div class="about-team-member" style="text-align:center;">
+                        <div class="about-team-photo" style="width:140px;height:140px;border-radius:50%;background:#bbb url('TEAM4_PLACEHOLDER.jpg') center/cover no-repeat;margin-bottom:10px;"></div>
+                        <div class="about-team-name">ABCD SHSHSH<br>XYZ</div>
+                    </div>
+                    <div class="about-team-member" style="text-align:center;">
+                        <div class="about-team-photo" style="width:140px;height:140px;border-radius:50%;background:#bbb url('TEAM5_PLACEHOLDER.jpg') center/cover no-repeat;margin-bottom:10px;"></div>
+                        <div class="about-team-name">ABCD SHSHSH<br>XYZ</div>
+                    </div>
+                    <div class="about-team-member" style="text-align:center;">
+                        <div class="about-team-photo" style="width:140px;height:140px;border-radius:50%;background:#bbb url('TEAM6_PLACEHOLDER.jpg') center/cover no-repeat;margin-bottom:10px;"></div>
+                        <div class="about-team-name">ABCD SHSHSH<br>XYZ</div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-col footer-brand">
             <div class="footer-logo-social">
