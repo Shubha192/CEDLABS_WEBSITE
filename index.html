@@ -4,13 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CED Labs Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Preload main stylesheet for faster rendering -->
+    <link rel="preload" href="styles.css" as="style">
+    <!-- Inline critical CSS for above-the-fold content -->
+    <style>
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #333; }
+      .navbar { display: flex; align-items: stretch; height: 60px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); background: #c00; }
+      .navbar-logo-container { display: flex; align-items: center; gap: 12px; background: #fff; padding: 0 24px; height: 60px; }
+      .navbar-logo { height: 45px; vertical-align: middle; }
+      .hamburger { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 40px; height: 40px; background: none; border: none; cursor: pointer; z-index: 3000; }
+      .hamburger span { display: block; width: 28px; height: 4px; margin: 3px 0; background: #c00; border-radius: 2px; transition: 0.3s; }
+      .navbar-main { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; background: #c00; color: #fff; min-height: 60px; }
+      .navbar-menu { display: flex; list-style: none; margin: 0; padding: 0; gap: 20px; }
+      .navbar-menu a { color: #fff; text-decoration: none; font-size: 16px; padding: 5px 0; position: relative; transition: color 0.3s; }
+      .navbar-menu a:hover, .navbar-menu a:focus { color: #000; }
+      .hero-carousel { position: relative; width: 100%; height: 60vh; overflow: hidden; }
+      .carousel-container { display: flex; width: 100%; height: 100%; transition: transform 0.5s ease-in-out; }
+      .carousel-slide { min-width: 100%; height: 100%; position: relative; display: flex; align-items: flex-end; justify-content: flex-start; color: white; text-align: left; }
+      .carousel-caption { position: relative; z-index: 2; max-width: 500px; padding: 24px 32px 32px 32px; margin: 0 0 32px 32px; background: rgba(0,0,0,0.45); border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+      .carousel-caption h1 { font-size: 2.2rem; margin-bottom: 10px; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+      .carousel-caption p { font-size: 1.1rem; color: #f3f3f3; text-shadow: 0 1px 4px rgba(0,0,0,0.18); }
+      .carousel-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; }
+      .dot { width: 12px; height: 12px; border-radius: 50%; background-color: #fff; cursor: pointer; transition: background-color 0.3s; }
+      .dot.active { background-color: #c00; }
+    </style>
+    <!-- Defer non-critical CSS -->
+    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
 </head>
 <body>
     <nav class="navbar">
         <div class="navbar-logo-container">
             <img src="logo.png" alt="CED Labs Logo" class="navbar-logo">
         </div>
+        <button class="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <div class="navbar-main">
             <ul class="navbar-menu">
                 <li><a href="index.html" class="active">Home</a></li>
@@ -35,50 +67,51 @@
     </nav>
     <main>
         <!-- Hero Carousel Section -->
-        <section class="hero-carousel">
+        <section class="hero-carousel fade-in" style="margin-bottom:0;padding-bottom:0;">
             <div class="carousel-container">
-                <div class="carousel-slide active" style="background-image: url('Frame\ 34.png');">
+                <div class="carousel-slide active">
+                    <img src="Frame 51.png" alt="CHR RTK GPS - RFID HANDLE READER" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:0;" />
                     <div class="carousel-caption">
                         <h1>CHR RTK GPS - RFID HANDLE READER</h1>
                         <p>The CHR GNSS RTK Roveiver offers outstanding performance and efficiency, significantly improving your fieldwork with reliable solutions. This ensures superior productivity.</p>
                     </div>
                 </div>
-                <div class="carousel-slide" style="background-image: url('Frame\ 32.png');">
+                <div class="carousel-slide">
+                    <img src="Frame 32.png" alt="RFID INTEGRATED READER" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:0;" />
                     <div class="carousel-caption">
                         <h1>RFID INTEGRATED READER</h1>
                         <p>India's Indigenous Automatic Train Protection System. Ensuring Railway Safety with Cutting-Edge Technology.</p>
                     </div>
                 </div>
-                <div class="carousel-slide" style="background-image: url('Frame\ 33.png');">
+                <div class="carousel-slide">
+                    <img src="Frame 33.png" alt="Mobile Computers" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:0;" />
                     <div class="carousel-caption">
                         <h1>Mobile Computers</h1>
                         <p>Empowering Healthcare, Government, Retail, Transport, and More with Smart Mobility Solutions.</p>
                     </div>
                 </div>
             </div>
-            <div class="carousel-dots"></div>
+            <div class="carousel-dots mobile-hide"></div>
         </section>
-
-        <!-- Homepage About Section -->
-        <section class="home-about" id="about">
+        <!-- About CEDLABS Section (desktop: image left, heading/content/button right) -->
+        <section class="home-about fade-in" id="about">
             <div class="home-about-image">
-                <img src="Aboutus.png" alt="Office environment">
+                <img src="Aboutus.png" alt="Office environment" loading="lazy" />
             </div>
-            <div class="home-about-content">
+            <div class="home-about-content-mobile">
                 <h2 class="section-title">About <span>Cedlabs</span></h2>
                 <p>CED Labs Pvt Ltd. is a fast-growing product design, development, and manufacturing company based in Tumkur, Karnataka. Established in 2019, the company was founded by a team of highly experienced engineers with deep expertise in sectors such as Aerospace, Railways, and Telecom. Driven by a commitment to innovation and excellence, CED Labs specializes in cutting-edge technologies, including the Internet of Things (IoT), RFID, and embedded systems.</p>
                 <a href="about.html" class="btn">Know More</a>
             </div>
         </section>
-
         <!-- Product Offerings Section -->
-        <section class="product-offerings">
+        <section class="product-offerings slide-in-left">
             <div class="title-container">
                 <h2 class="section-title">OUR PRODUCT <span>OFFERINGS</span></h2>
             </div>
             <div class="product-grid">
-                <div class="product-card">
-                    <img src="RFID.png" alt="Pocket RFID">
+                <div class="product-card fade-in">
+                    <img src="RFID.png" alt="Pocket RFID" loading="lazy">
                     <h3>Pocket RFID</h3>
                     <div class="product-rating">
                         <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star">☆</span>
@@ -86,17 +119,18 @@
                     <div class="rating-text">Rated 4 out of 5</div>
                     <a href="product-rfid.html" class="btn-read-more">Read More</a>
                 </div>
-                <div class="product-card">
-                    <img src="CHR Mobility.png" alt="Cell Mobility">
+                <div class="product-card slide-in-left">
+                    <img src="CHR Mobility.png" alt="Cell Mobility" loading="lazy">
                     <h3>CHR Mobility</h3>
                     <div class="product-rating">
                         <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star">☆</span>
                     </div>
                     <div class="rating-text">Rated 4 out of 5</div>
-                    <a href="product-chr.html" class="btn-read-more">Read More</a>
+                    <!-- FIX: Correct link for CHR Mobility -->
+                    <a href="product-mobile.html" class="btn-read-more">Read More</a>
                 </div>
-                <div class="product-card">
-                    <img src="CHR Handle.png" alt="CHR HANDEL Reader">
+                <div class="product-card slide-in-right">
+                    <img src="CHR Handle.png" alt="CHR HANDEL Reader" loading="lazy">
                     <h3>CHR HANDEL Reader</h3>
                     <div class="product-rating">
                         <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star">☆</span>
@@ -106,62 +140,65 @@
                 </div>
             </div>
         </section>
-
         <!-- Services Section -->
-        <section class="home-services" id="services">
+        <section class="home-services fade-in" id="services">
             <div class="services-header">
                 <h2 class="section-title">Our <span>Services</span></h2>
             </div>
             <div class="services-container">
                 <a href="software-development.html" class="service-card-link">
-                    <div class="service-card">
-                        <img src="Software development.png" alt="Software Development">
+                    <div class="service-card slide-in-left">
+                        <img src="Software development.png" alt="Software Development" loading="lazy">
                         <p>Software Development & Testing</p>
                     </div>
                 </a>
                 <a href="software-development.html" class="service-card-link">
-                    <div class="service-card">
-                        <img src="mechanical.png" alt="Mechanical Design and 3-D Printing">
+                    <div class="service-card fade-in">
+                        <img src="mechanical.png" alt="Mechanical Design and 3-D Printing" loading="lazy">
                         <p>Mechanical Design & 3D Printing</p>
                     </div>
                 </a>
                 <a href="software-development.html" class="service-card-link">
-                    <div class="service-card">
-                        <img src="embedded.png" alt="Embedded Software Development">
+                    <div class="service-card slide-in-right">
+                        <img src="embedded.png" alt="Embedded Software Development" loading="lazy">
                         <p>Embedded Software Development & Testing</p>
                     </div>
                 </a>
             </div>
         </section>
-
         <!-- Success Stories Section -->
-        <section class="success-stories">
+        <section class="success-stories fade-in">
             <div class="success-image">
-                <img src="success.png" alt="Success story event">
+                <img src="success.png" alt="Success story event" loading="lazy">
             </div>
             <div class="success-content">
                 <h2>Discover Our Success Stories</h2>
-                <p>Started in 2019 as an End-to-End Product Company with expertise in Aerospace, Telecom and Railways domains. The aim of the company is to serve the Aerospace, Railways and Telecom domain.<br><br>CEDLabs expertise is on Hardware and Firmware as per customer needs. CEDLabs is well versed with Aerospace standards, processing including RFID technology.</p>
-                <img src="images/tech-summit-logo.png" alt="Tech Summit Logo" class="tech-summit-logo">
+                <div class="success-content-mobile">
+                    <p>Started in 2019 as an End-to-End Product Company with expertise in Aerospace, Telecom and Railways domains. The aim of the company is to serve the Aerospace, Railways and Telecom domain.<br><br>CEDLabs expertise is on Hardware and Firmware as per customer needs. CEDLabs is well versed with Aerospace standards, processing including RFID technology.</p>
+                    <img src="BTS-Logo 1.png" alt="Tech Summit Logo" class="tech-summit-logo" loading="lazy">
+                </div>
             </div>
         </section>
-
         <!-- Clients Section -->
-        <section class="clients-section">
+        <section class="clients-section slide-in-left" style="margin-top:60px;">
             <h2 class="section-title">Our <span>Clients</span></h2>
             <div class="clients-carousel">
                 <div class="clients-track">
-                    <img src="schn.png" alt="Schneider Electric">
-                    <img src="mescm.png" alt="MESCOM">
-                    <img src="bel.png" alt="BEL">
-                    <img src="tata.png" alt="TATA Power">
-                    <img src="Railway.png" alt="Indian Railway">
-                    <!-- Duplicate for seamless scroll -->
-                    <img src="schn.png" alt="Schneider Electric">
-                    <img src="mescm.png" alt="MESCOM">
-                    <img src="bel.png" alt="BEL">
-                    <img src="tata.png" alt="TATA Power">
-                    <img src="Railway.png" alt="Indian Railway">
+                    <img src="schn.png" alt="Schneider Electric" loading="lazy">
+                    <img src="mescm.png" alt="MESCOM" loading="lazy">
+                    <img src="bel.png" alt="BEL" loading="lazy">
+                    <img src="tata.png" alt="TATA Power" loading="lazy">
+                    <img src="Railway.png" alt="Indian Railway" loading="lazy">
+                    <img src="schn.png" alt="Schneider Electric" loading="lazy">
+                    <img src="mescm.png" alt="MESCOM" loading="lazy">
+                    <img src="bel.png" alt="BEL" loading="lazy">
+                    <img src="tata.png" alt="TATA Power" loading="lazy">
+                    <img src="Railway.png" alt="Indian Railway" loading="lazy">
+                    <img src="schn.png" alt="Schneider Electric" loading="lazy">
+                    <img src="mescm.png" alt="MESCOM" loading="lazy">
+                    <img src="bel.png" alt="BEL" loading="lazy">
+                    <img src="tata.png" alt="TATA Power" loading="lazy">
+                    <img src="Railway.png" alt="Indian Railway" loading="lazy">
                 </div>
             </div>
         </section>
@@ -206,6 +243,6 @@
             </ul>
         </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html> 

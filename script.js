@@ -73,4 +73,133 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-}); 
+    // Hamburger menu functionality (ensure on all pages, all screen sizes, accessible)
+    const hamburger = document.querySelector('.hamburger');
+    const navbar = document.querySelector('.navbar');
+    const navbarMain = document.querySelector('.navbar-main');
+    if (hamburger && navbar) {
+        // ARIA attributes for accessibility
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-controls', 'main-menu');
+        hamburger.setAttribute('tabindex', '0');
+        hamburger.setAttribute('role', 'button');
+        // Toggle menu on click or Enter/Space
+        function toggleMenu(e) {
+            if (e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                e.stopPropagation();
+                const isOpen = navbar.classList.toggle('open');
+                hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                if (isOpen && navbarMain) {
+                    // Focus first link in menu
+                    const firstLink = navbarMain.querySelector('.navbar-menu a');
+                    if (firstLink) firstLink.focus();
+                }
+            }
+        }
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('keydown', toggleMenu);
+        // Close menu when clicking outside or on a link (mobile UX)
+        document.addEventListener('click', function(e) {
+            if (navbar.classList.contains('open') && !navbar.contains(e.target) && !e.target.classList.contains('hamburger')) {
+                navbar.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+        document.querySelectorAll('.navbar-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                if(window.innerWidth <= 900) {
+                    navbar.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+            // Keyboard navigation: close menu on Escape
+            link.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    navbar.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    hamburger.focus();
+                }
+            });
+        });
+        // Close menu on Escape key from hamburger
+        hamburger.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                navbar.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.blur();
+            }
+        });
+        // Focus trap: keep focus inside menu when open
+        document.addEventListener('keydown', function(e) {
+            if (navbar.classList.contains('open') && (e.key === 'Tab')) {
+                const focusableEls = navbarMain.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+                const firstEl = focusableEls[0];
+                const lastEl = focusableEls[focusableEls.length - 1];
+                if (e.shiftKey) {
+                    if (document.activeElement === firstEl) {
+                        e.preventDefault();
+                        lastEl.focus();
+                    }
+                } else {
+                    if (document.activeElement === lastEl) {
+                        e.preventDefault();
+                        firstEl.focus();
+                    }
+                }
+            }
+        });
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href').slice(1);
+            const target = document.getElementById(targetId);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Scroll-based animation logic
+    function animateOnScroll() {
+        const fadeEls = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+        fadeEls.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 60) {
+                el.classList.add('visible');
+            }
+        });
+    }
+    function triggerAnimationsAfterLoad() {
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('resize', animateOnScroll);
+        animateOnScroll(); // Initial call
+    }
+    if (document.readyState === 'complete') {
+        triggerAnimationsAfterLoad();
+    } else {
+        window.addEventListener('load', triggerAnimationsAfterLoad);
+    }
+
+    // Add fade-in/slide-in classes to main sections/cards if not present
+    document.querySelectorAll('section, .product-card, .service-card, .about-team-member').forEach((el, i) => {
+        if (!el.classList.contains('fade-in') && !el.classList.contains('slide-in-left') && !el.classList.contains('slide-in-right')) {
+            if (i % 3 === 0) el.classList.add('fade-in');
+            else if (i % 3 === 1) el.classList.add('slide-in-left');
+            else el.classList.add('slide-in-right');
+        }
+    });
+
+});
+// Optimize all images for lazy loading (performance)
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('img:not([loading])').forEach(img => {
+    img.setAttribute('loading', 'lazy');
+  });
+});
+// For further speedup, minify styles.css and script.js in production.
+// Minified version for performance
+document.addEventListener("DOMContentLoaded",function(){const e=document.querySelector(".hamburger"),t=document.querySelector(".navbar");if(e&&t){e.addEventListener("click",function(e){e.stopPropagation(),t.classList.toggle("open")}),document.addEventListener("click",function(e){t.classList.contains("open")&&!t.contains(e.target)&&!e.target.classList.contains("hamburger")&&t.classList.remove("open")}),document.querySelectorAll(".navbar-menu a").forEach(n=>{n.addEventListener("click",function(){window.innerWidth<=900&&t.classList.remove("open")})})}function n(){document.querySelectorAll(".fade-in, .slide-in-left, .slide-in-right").forEach(function(e){e.getBoundingClientRect().top<window.innerHeight-60&&e.classList.add("visible")})}function o(){window.addEventListener("scroll",n),window.addEventListener("resize",n),n()}"complete"===document.readyState?o():window.addEventListener("load",o),document.querySelectorAll("section, .product-card, .service-card, .about-team-member").forEach(function(e,t){e.classList.contains("fade-in")||e.classList.contains("slide-in-left")||e.classList.contains("slide-in-right")||(0===t%3?e.classList.add("fade-in"):1===t%3?e.classList.add("slide-in-left"):e.classList.add("slide-in-right"))})}); 

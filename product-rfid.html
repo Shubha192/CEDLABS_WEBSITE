@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RFID Integrated Reader - CED Labs</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <!-- TODO: Minify styles.css and script.js for further performance improvement -->
 </head>
 <body>
     <nav class="navbar">
         <div class="navbar-logo-container">
             <img src="logo.png" alt="CED Labs Logo" class="navbar-logo">
         </div>
+        <button class="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <div class="navbar-main">
             <ul class="navbar-menu">
                 <li><a href="index.html">Home</a></li>
@@ -34,33 +41,33 @@
         </div>
     </nav>
     <main>
-        <section class="rfid-hero-section">
-            <img src="RfidReader.png" alt="RFID Integrated Reader 1" class="rfid-hero-image">
+        <section class="rfid-hero-section fade-in">
+            <img src="RfidReader.png" alt="RFID Integrated Reader 1" class="rfid-hero-image" loading="lazy">
         </section>
-        <section style="background:#fff;padding:30px 0 0 0;text-align:center;">
+        <section class="slide-in-left" style="background:#fff;padding:30px 0 0 0;text-align:center;">
             <h1 style="font-size:2rem;font-weight:700;margin-bottom:10px;">RFID INTEGRATED READER</h1>
             <p style="max-width:700px;margin:0 auto 20px auto;font-size:1.1rem;line-height:1.5;">
                 Our RFID Integrated Reader delivers accurate data capture at speeds up to 200 km/h, supporting ISO18000-6C/D protocols for broad tag compatibility. Built for safety-critical, industrial, and transport environments, it features an IP68-rated enclosure and supports RS485 and Ethernet connections, ensuring durable performance and flexible integration in harsh conditions.
             </p>
         </section>
-        <section style="background:#fff;text-align:center;padding-bottom:30px;">
+        <section class="slide-in-right" style="background:#fff;text-align:center;padding-bottom:30px;">
             <h2 style="color:#c00;font-size:1.2rem;font-weight:700;margin:30px 0 20px 0;">KEY Features</h2>
             <div class="rfid-features-grid">
-                <div class="rfid-feature-item">
+                <div class="rfid-feature-item fade-in">
                     <div class="rfid-feature-image-placeholder" style="border:none;background:none;">
-                        <img src="material-symbols_speed.png" alt="200Kmph Speed Test Icon" style="width:60px;height:60px;object-fit:contain;">
+                        <img src="material-symbols_speed.png" alt="200Kmph Speed Test Icon" style="width:60px;height:60px;object-fit:contain;" loading="lazy">
                     </div>
                     <div style="font-weight:600;">Data Read Tested at Lab for the Speed of 200Kmph.</div>
                 </div>
-                <div class="rfid-feature-item">
+                <div class="rfid-feature-item slide-in-left">
                     <div class="rfid-feature-image-placeholder" style="border:none;background:none;">
-                        <img src="mdi_certificate.png" alt="Safety Certification Icon" style="width:60px;height:60px;object-fit:contain;">
+                        <img src="mdi_certificate.png" alt="Safety Certification Icon" style="width:60px;height:60px;object-fit:contain;" loading="lazy">
                     </div>
                     <div style="font-weight:600;">Designed for Safety Critical Certification.</div>
                 </div>
-                <div class="rfid-feature-item">
+                <div class="rfid-feature-item slide-in-right">
                     <div class="rfid-feature-image-placeholder" style="border:none;background:none;">
-                        <img src="fa_internet-explorer.png" alt="RS485 & Ethernet Icon" style="width:60px;height:60px;object-fit:contain;">
+                        <img src="fa_internet-explorer.png" alt="RS485 & Ethernet Icon" style="width:60px;height:60px;object-fit:contain;" loading="lazy">
                     </div>
                     <div style="font-weight:600;">Support RS485 & Ethernet connection.</div>
                 </div>

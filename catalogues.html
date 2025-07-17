@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogues - CED Labs</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <!-- TODO: Minify styles.css and script.js for further performance improvement -->
 </head>
 <body>
     <nav class="navbar">
         <div class="navbar-logo-container">
             <img src="logo.png" alt="CED Labs Logo" class="navbar-logo">
         </div>
+        <button class="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <div class="navbar-main">
             <ul class="navbar-menu">
                 <li><a href="index.html">Home</a></li>
@@ -34,13 +41,13 @@
         </div>
     </nav>
 
-    <main class="catalogues-container">
+    <main class="catalogues-container fade-in">
         <div class="search-container">
             <input type="text" placeholder="Type Product Name">
             <button>&#x1F50D;</button>
         </div>
         <div class="catalogues-body">
-            <aside class="catalogues-sidebar">
+            <aside class="catalogues-sidebar slide-in-left">
                 <h3>All Catalogues</h3>
                 <ul>
                     <li>CHR RTK Reader</li>
@@ -52,13 +59,13 @@
                     <li>SE Rams</li>
                 </ul>
             </aside>
-            <section class="catalogues-grid">
-                <div class="catalogue-item"><img src="CHR Mobility.png" alt="Mobile Computers"></div>
-                <div class="catalogue-item"><img src="CHR Mobility.png" alt="Mobile Computers"></div>
-                <div class="catalogue-item"><img src="CHR Mobility.png" alt="Mobile Computers"></div>
-                <div class="catalogue-item"><img src="CHR Mobility.png" alt="Mobile Computers"></div>
-                <div class="catalogue-item"><img src="CHR Mobility.png" alt="Mobile Computers"></div>
-                <div class="catalogue-item"><img src="CHR Mobility.png" alt="Mobile Computers"></div>
+            <section class="catalogues-grid slide-in-right">
+                <div class="catalogue-item fade-in"><img src="CHR Mobility.png" alt="Mobile Computers" loading="lazy"></div>
+                <div class="catalogue-item slide-in-left"><img src="CHR Mobility.png" alt="Mobile Computers" loading="lazy"></div>
+                <div class="catalogue-item slide-in-right"><img src="CHR Mobility.png" alt="Mobile Computers" loading="lazy"></div>
+                <div class="catalogue-item fade-in"><img src="CHR Mobility.png" alt="Mobile Computers" loading="lazy"></div>
+                <div class="catalogue-item slide-in-left"><img src="CHR Mobility.png" alt="Mobile Computers" loading="lazy"></div>
+                <div class="catalogue-item slide-in-right"><img src="CHR Mobility.png" alt="Mobile Computers" loading="lazy"></div>
             </section>
         </div>
     </main>

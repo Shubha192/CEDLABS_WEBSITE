@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Computers - CED Labs</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <!-- TODO: Minify styles.css and script.js for further performance improvement -->
 </head>
 <body>
     <nav class="navbar">
         <div class="navbar-logo-container">
             <img src="logo.png" alt="CED Labs Logo" class="navbar-logo">
         </div>
+        <button class="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <div class="navbar-main">
             <ul class="navbar-menu">
                 <li><a href="index.html">Home</a></li>
@@ -34,28 +41,28 @@
         </div>
     </nav>
     <main>
-        <section class="mobile-hero-section">
-            <img src="Frame 33.png" alt="Mobile Computer 1" class="mobile-hero-image">
+        <section class="mobile-hero-section fade-in">
+            <img src="Frame 33.png" alt="Mobile Computer 1" class="mobile-hero-image" loading="lazy">
         </section>
-        <section style="background:#fff;padding:30px 0 0 0;text-align:center;">
+        <section class="slide-in-left" style="background:#fff;padding:30px 0 0 0;text-align:center;">
             <h1 style="font-size:2rem;font-weight:700;margin-bottom:10px;">Mobile Computers</h1>
             <p style="max-width:700px;margin:0 auto 20px auto;font-size:1.1rem;line-height:1.5;">
                 Our rugged mobile computers empower healthcare, government, retail, transport, and more with reliable, smart mobility solutions. With 4G connectivity, long battery life, IP65 rating, and advanced features like USB-C and sensor support, they ensure seamless data collection and real-time communication in demanding environments—boosting productivity and performance across all sectors.
             </p>
         </section>
-        <section style="background:#fff;text-align:center;padding-bottom:30px;">
+        <section class="slide-in-right" style="background:#fff;text-align:center;padding-bottom:30px;">
             <h2 style="color:#c00;font-size:1.2rem;font-weight:700;margin:30px 0 20px 0;">KEY Features</h2>
             <div class="mobile-features-grid">
-                <div class="mobile-feature-item">
-                    <img src="ooui_network.png" alt="4G Icon" class="feature-icon-img">
+                <div class="mobile-feature-item fade-in">
+                    <img src="ooui_network.png" alt="4G Icon" class="feature-icon-img" loading="lazy">
                     <div style="font-weight:600;">4G : 1800MHZ/850MHZ/2300m</div>
                 </div>
-                <div class="mobile-feature-item">
-                    <img src="Frame 45.png" alt="Battery Icon" class="feature-icon-img">
+                <div class="mobile-feature-item slide-in-left">
+                    <img src="Frame 45.png" alt="Battery Icon" class="feature-icon-img" loading="lazy">
                     <div style="font-weight:600;">Removable, rechargeable 7.4 volt Lithium ion 6000 mAh Fast Charging</div>
                 </div>
-                <div class="mobile-feature-item">
-                    <img src="bi_cpu.png" alt="CPU Icon" class="feature-icon-img">
+                <div class="mobile-feature-item slide-in-right">
+                    <img src="bi_cpu.png" alt="CPU Icon" class="feature-icon-img" loading="lazy">
                     <div style="font-weight:600;">CPU : OCTA-CORE(4x2.5 GHz cortex- A53 & 4x1.4 GHz Cortex-A53)</div>
                 </div>
             </div>
