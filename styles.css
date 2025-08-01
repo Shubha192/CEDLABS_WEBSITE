@@ -439,10 +439,14 @@ html {
 
 /* Clients Section */
 .clients-section {
-    padding: 50px;
-    text-align: center;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  height: 300px;
 }
+
 
 .clients-section h2 { font-size: 2rem; margin-bottom: 40px; }
 .clients-carousel {
