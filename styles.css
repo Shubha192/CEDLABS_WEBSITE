@@ -114,6 +114,7 @@ html {
     width: 100%;
     height: 60vh;
     overflow: hidden;
+     margin-bottom: 60px !important;
 }
 
 .carousel-container {
@@ -195,10 +196,24 @@ html {
 }
 
 /* Home About Section */
-.home-about {
+/* Add uniform gap between homepage sections */
+.home-about,
+.product-offerings,
+.home-services,
+.success-stories,
+.clients-section {
+    margin-top: 40px;
+}
+    
+  .home-about {
     display: flex;
     align-items: stretch;
     background: #f9f9f9;
+    padding-top: 40px; /* Optional */
+    margin-top: 80px !important ;/* Increase if you want more gap */
+}
+.home-about {
+    border-top: none !important; /* Remove top border/divider */
 }
 
 .home-about-image {
@@ -536,13 +551,16 @@ html {
 }
 
 .about-team {
-    margin-top: 50px;
+    margin-top: 50px 20px;
+    margin-bottom: 40px; 
 }
 
 .about-team h2 {
     text-align: center;
     font-size: 2rem;
-    margin-bottom: 40px;
+    margin-bottom: 40px !important;
+     margin-left: 20px; /* Add left margin to heading */
+    
 }
 
 .about-team-grid {
@@ -550,6 +568,8 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
+    margin-bottom: 60px;
+
 }
 
 .about-team-member {
@@ -605,6 +625,25 @@ html {
     .home-about, .product-offerings, .home-services, .success-stories, .clients-section { padding: 30px 15px; }
     .product-features-section {
         flex-direction: column;
+    }
+}
+/* Mobile-specific adjustments with higher specificity */
+@media screen and (max-width: 768px) {
+    .hero-carousel, 
+    .carousel-container {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    
+    .home-about {
+        margin-top: 15px !important;
+        padding-top: 15px !important;
+    }
+
+    /* If sections have padding, override those too */
+    section {
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
     }
 }
 
@@ -2180,3 +2219,39 @@ section section, .section section {
     margin-bottom: 60px !important;
   }
 } 
+@media screen and (max-width: 768px) {
+  .product-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    align-items: center !important;
+  }
+  .product-card {
+    width: 100% !important;
+    max-width: 90vw !important;
+  }
+}
+/* Hide submenu by default */
+.nav-links .dropdown-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  z-index: 1000;
+}
+
+
+/* Mobile override (toggle on click) */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+  }
+
+  .dropdown-menu {
+    position: static;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: flex;
+  }
+}
